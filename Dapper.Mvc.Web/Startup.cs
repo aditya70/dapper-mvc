@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Dapper.Mvc.Web
 {
@@ -33,8 +35,9 @@ namespace Dapper.Mvc.Web
             });
 
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+          
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddJsonOptions( options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
