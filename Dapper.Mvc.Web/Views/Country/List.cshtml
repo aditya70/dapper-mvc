@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Country>
+@{
+    ViewData["Title"] = "List";
+}
+
+
+<table class="table-bordered table-striped table-hover" style="border : 2px solid black;">
+    <thead class="thead-dark bg-success">
+        <tr>
+            <th>Name</th>
+            <th>Capital</th>
+            <th>Region</th>
+            <th>Subregion</th>
+            <th>Country Code</th>
+            <th>Population</th>
+            <th>Flag</th>
+        </tr>
+    </thead>
+   
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.name</td>
+            <td>@item.capital</td>
+            <td>@item.region</td>
+            <td>@item.subregion</td>
+            <td>@item.alpha3Code</td>
+            <td>@item.population</td>
+            <td><img src="@item.flag" style="height:50px;width:50px;"/></td>
+        </tr>
+        }
+        </tbody>
+    </table>
+

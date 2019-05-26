@@ -18,3 +18,13 @@
 .app-body{
     z-index:100;
 }
+
+.custom {
+    
+    width: 206px;
+}
+
+table.table-bordered > thead > tr > th {
+     border: 2px solid black;
+    
+}
